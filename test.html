@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Choice</title>   
+    </head>
+<body>
+    <a class = "go-btn">google</a>
+<script>
+    var button = document.querySelector('.go-btn');
+    /*
+    var event = new Event('click');
+    var i = 0;
+    var autoClick = function(){
+        i++;
+        if (i>15){ 
+            button.removeEventListener('click' , clicker);
+        }else {
+            button.dispatchEvent(event);
+        }
+        console.log(i);
+    }
+        var clicker = function(){setTimeout(autoClick , 1000);  
+        } */
+        var x = setInterval(function() { document.querySelector('.go-btn').click() }, 1000)
+
+    button.addEventListener('click' , clicker);
+
+    //button.className = 'go-btn red pressed';
+            //console.log(button.classList);
+   // console.log(button);
+</script>
+</body>
+</html>
