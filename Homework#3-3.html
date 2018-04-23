@@ -40,42 +40,150 @@
         </div>
         <button class="navButton">></button>
       </div>
-      <div class="roadMap__container yellow">
-        <button class="navButton"><</button>
-        <div class="roadMap">
-          <div class="roadMapPoint ball" data-id="1"></div>
-          <div class="roadMapPoint" data-id="2"></div>
-          <div class="roadMapPoint" data-id="3"></div>
-          <div class="roadMapPoint" data-id="4"></div>
-        </div>
-        <button class="navButton">></button>
-      </div>
-
-      <div class="roadMap__container red">
-        <button class="navButton"><</button>
-        <div class="roadMap">
-          <div class="roadMapPoint" data-id="1"></div>
-          <div class="roadMapPoint" data-id="2"></div>
-          <div class="roadMapPoint ball" data-id="3"></div>
-          <div class="roadMapPoint" data-id="4"></div>
-        </div>
-        <button class="navButton">></button>
-      </div>
-
-      <div class="roadMap__container blue">
-        <button class="navButton"><</button>
-        <div class="roadMap">
-          <div class="roadMapPoint" data-id="1"></div>
-          <div class="roadMapPoint ball" data-id="2"></div>
-          <div class="roadMapPoint" data-id="3"></div>
-          <div class="roadMapPoint" data-id="4"></div>
-        </div>
-        <button class="navButton">></button>
-      </div>
-    </div>
-    <script>
       
-      var yellow = document.querySelector('.roadMap__container.yellow');
+      
+    <script>
+     var container = {
+       ballpos: undefined,
+       mapRight: function(par){
+         var ball = par.querySelector('.ball');
+         this.ballpos = ball.getAttribute('data-id');
+         right(par);
+       },
+       mapLeft: function(par){
+         var ball = par.querySelector('.ball');
+         this.ballpos = ball.getAttribute('data-id');
+         left(par);
+       }
+     }
+    
+    var right = function (){
+      for(var i = 0 ; i <= 3 ; i++){
+        var current = container.ballpos;
+        var points = par.querySelectorAll('.roadMapPoint');
+        points[i].className = 'roadMapPoint';
+        if (current <= 3){
+          points[current].classList  = 'roadMapPoint ball';
+        } else {
+          points[0].classList  = 'roadMapPoint ball';
+        }
+      }
+    }
+
+    var left = function (){
+      for(var i = 0 ; i <= 3 ; i++){
+        var current = container.ballpos;
+        var points = par.querySelectorAll('.roadMapPoint');
+        points[i].className = 'roadMapPoint';
+        
+          if (current <= 1 ){
+          points[3].classList  = 'roadMapPoint ball';
+        } else {
+          points[current-2].classList  = 'roadMapPoint ball';
+        }
+      }
+    }
+
+    var Choice = function(){
+      par = event.target.parentElement;
+      if (event.target.innerText === ">"){
+        container.mapRight(par);
+      }
+      if (event.target.innerText === "<"){
+        container.mapLeft(par);
+      }
+    }
+    
+    var buttons = document.querySelectorAll('.navButton');
+    buttons.forEach(function (){
+        addEventListener('click' , Choice);
+        });
+    
+   
+  
+
+          
+
+
+    //var currPos = function (thisElemet){
+      //  if ( thisElemet.className === 'roadMapPoint ball'){
+        //  newElement = thisElemet.getAttribute('data-id');
+          //console.log(newElement);
+       // }
+     // }
+     // buttons.forEach(currPos);
+      
+     
+     
+     
+       // console.log(newPosition.className);
+       // mapPoints.className = 'roadMapPint';
+       // console.log(newPosition.getAttribute('data-id'));
+       //console.log(position.dataset.id);
+    
+      
+     
+   
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     /* var buttons = document.querySelectorAll('.wrap .navButton');
+      console.log(buttons);
+      
+
+
+      var currentBox = function(){
+        for(var i = 0 ; i < buttons.length ; i++){
+        var Box = buttons[i].parentElement;
+        console.log(Box);
+        var thisBox = Box.className;
+        thisBox.
+        console.log(thisBox);
+        }
+      }
+      currentBox();
+      console.log(currentBox);
+      */
+      
+     // addEventListener('click' , getCurrentButton);
+      //
+      //console.log(buttons);
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     /* var yellow = document.querySelector('.roadMap__container.yellow');
       var red = document.querySelector('.roadMap__container.red');
       var blue = document.querySelector('.roadMap__container.blue');
 
